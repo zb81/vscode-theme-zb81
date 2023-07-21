@@ -1,28 +1,28 @@
 {
-  "publisher": "antfu",
-  "name": "theme-vitesse",
-  "displayName": "Vitesse Theme",
-  "version": "0.7.2",
+  "publisher": "zb81",
+  "name": "theme-zb81",
+  "displayName": "Zb81 Theme",
+  "version": "0.0.1",
   "packageManager": "pnpm@8.5.0",
-  "description": "Vitesse theme for VS Code",
+  "description": "Zb81 theme for VS Code",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/antfu/vscode-theme-vitesse"
+    "url": "https://github.com/zb81/vscode-theme-zb81"
   },
   "bugs": {
-    "url": "https://github.com/antfu/vscode-theme-vitesse/issues"
+    "url": "https://github.com/zb81/vscode-theme-zb81/issues"
   },
   "keywords": [
     "theme",
-    "vitesse",
+    "zb81",
     "light",
     "dark"
   ],
   "categories": [
     "Themes"
   ],
-  "icon": "icon.png",
+  "icon": "logo.jpeg",
   "files": [
     "themes"
   ],
@@ -32,29 +32,29 @@
   "contributes": {
     "themes": [
       {
-        "label": "Vitesse Light",
+        "label": "Zb81 Light",
         "uiTheme": "vs",
-        "path": "./themes/vitesse-light.json"
+        "path": "./themes/zb81-light.json"
       },
       {
-        "label": "Vitesse Dark",
+        "label": "Zb81 Dark",
         "uiTheme": "vs-dark",
-        "path": "./themes/vitesse-dark.json"
+        "path": "./themes/zb81-dark.json"
       },
       {
-        "label": "Vitesse Black",
+        "label": "Zb81 Black",
         "uiTheme": "vs-dark",
-        "path": "./themes/vitesse-black.json"
+        "path": "./themes/zb81-black.json"
       },
       {
-        "label": "Vitesse Light Soft",
+        "label": "Zb81 Light Soft",
         "uiTheme": "vs",
-        "path": "./themes/vitesse-light-soft.json"
+        "path": "./themes/zb81-light-soft.json"
       },
       {
-        "label": "Vitesse Dark Soft",
+        "label": "Zb81 Dark Soft",
         "uiTheme": "vs-dark",
-        "path": "./themes/vitesse-dark-soft.json"
+        "path": "./themes/zb81-dark-soft.json"
       }
     ]
   },

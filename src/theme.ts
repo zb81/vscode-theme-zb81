@@ -1,39 +1,39 @@
 import { toArray } from '@antfu/utils'
 import { getColors } from './primer'
-import { VitesseThemes } from './colors'
+import { Zb81Themes } from './colors'
 
 export default function getTheme({ style, name, soft = false, black = false }) {
   // Usage: `pick({ light: "lightblue", dark: "darkblue" })`
   const pick = options => options[style]
 
-  const vitesse = (key: keyof typeof VitesseThemes, op = '') => pick({ light: VitesseThemes[key][1] + op, dark: VitesseThemes[key][0] + op })
+  const zb81 = (key: keyof typeof Zb81Themes, op = '') => pick({ light: Zb81Themes[key][1] + op, dark: Zb81Themes[key][0] + op })
 
   const primer = getColors(style)
 
   const foreground = black
     ? '#dbd7cacc'
-    : vitesse('foreground')
-  const secondaryForeground = vitesse('secondaryForeground')
-  const activeForeground = vitesse('activeForeground')
-  const primary = vitesse('primary')
+    : zb81('foreground')
+  const secondaryForeground = zb81('secondaryForeground')
+  const activeForeground = zb81('activeForeground')
+  const primary = zb81('primary')
 
   const border = soft
-    ? vitesse('lowBorder')
-    : vitesse('border')
+    ? zb81('lowBorder')
+    : zb81('border')
   const background = black
     ? '#000'
     : soft
-      ? vitesse('lowBackground')
-      : vitesse('background')
+      ? zb81('lowBackground')
+      : zb81('background')
   const activeBackground = black
     ? '#121212'
     : soft
-      ? vitesse('lowActiveBackground')
-      : vitesse('activeBackground')
+      ? zb81('lowActiveBackground')
+      : zb81('activeBackground')
 
   const punctuation = black
-    ? vitesse('punctuation', 'cc')
-    : vitesse('punctuation')
+    ? zb81('punctuation', 'cc')
+    : zb81('punctuation')
 
   const selectionBackgroundInActive = pick({ light: '#22222208', dark: '#eeeeee08' })
   const selectionBackgroundActive = pick({ light: '#22222215', dark: '#eeeeee15' })
@@ -46,7 +46,7 @@ export default function getTheme({ style, name, soft = false, black = false }) {
       'focusBorder': '#00000000',
       foreground,
       'descriptionForeground': secondaryForeground,
-      'errorForeground': vitesse('red'),
+      'errorForeground': zb81('red'),
 
       'textLink.foreground': primary,
       'textLink.activeForeground': primary,
@@ -72,7 +72,7 @@ export default function getTheme({ style, name, soft = false, black = false }) {
       'input.border': border,
       'input.foreground': foreground,
       'input.placeholderForeground': secondaryForeground,
-      'inputOption.activeBackground': vitesse('ignored'),
+      'inputOption.activeBackground': zb81('ignored'),
 
       'badge.foreground': background,
       'badge.background': secondaryForeground,
@@ -86,7 +86,7 @@ export default function getTheme({ style, name, soft = false, black = false }) {
       'titleBar.border': activeBackground,
 
       'activityBar.foreground': foreground,
-      'activityBar.inactiveForeground': vitesse('ignored'),
+      'activityBar.inactiveForeground': zb81('ignored'),
       'activityBar.background': background,
       'activityBarBadge.foreground': background,
       'activityBarBadge.background': activeForeground,
@@ -118,9 +118,9 @@ export default function getTheme({ style, name, soft = false, black = false }) {
       'notifications.foreground': foreground,
       'notifications.background': background,
       'notifications.border': border,
-      'notificationsErrorIcon.foreground': vitesse('red'),
-      'notificationsWarningIcon.foreground': vitesse('orange'),
-      'notificationsInfoIcon.foreground': vitesse('blue'),
+      'notificationsErrorIcon.foreground': zb81('red'),
+      'notificationsWarningIcon.foreground': zb81('orange'),
+      'notificationsInfoIcon.foreground': zb81('blue'),
 
       'pickerGroup.border': border,
       'pickerGroup.foreground': foreground,
@@ -163,7 +163,7 @@ export default function getTheme({ style, name, soft = false, black = false }) {
       'editorWidget.background': background,
       'editor.foldBackground': pick({ light: '#22222210', dark: '#eeeeee10' }),
       'editor.lineHighlightBackground': activeBackground,
-      'editorLineNumber.foreground': vitesse('ignored'),
+      'editorLineNumber.foreground': zb81('ignored'),
       'editorLineNumber.activeForeground': activeForeground,
       'editorIndentGuide.background': pick({ light: '#00000015', dark: '#ffffff15' }),
       'editorIndentGuide.activeBackground': pick({ light: '#00000030', dark: '#ffffff30' }),
@@ -183,9 +183,9 @@ export default function getTheme({ style, name, soft = false, black = false }) {
       'diffEditor.removedTextBackground': pick({ light: '#ab595910', dark: '#ab595922' }),
 
       'scrollbar.shadow': pick({ light: '#6a737d33', dark: '#0000' }),
-      'scrollbarSlider.background': vitesse('faded'),
-      'scrollbarSlider.hoverBackground': vitesse('ignored'),
-      'scrollbarSlider.activeBackground': vitesse('ignored'),
+      'scrollbarSlider.background': zb81('faded'),
+      'scrollbarSlider.hoverBackground': zb81('ignored'),
+      'scrollbarSlider.activeBackground': zb81('ignored'),
       'editorOverviewRuler.border': primer.white,
 
       'panel.background': background,
@@ -198,40 +198,40 @@ export default function getTheme({ style, name, soft = false, black = false }) {
       'terminal.foreground': foreground,
       'terminal.selectionBackground': selectionBackground,
       'terminal.ansiBrightBlack': pick({ light: '#aaaaaa', dark: '#777777' }),
-      'terminal.ansiBrightBlue': vitesse('blue'),
-      'terminal.ansiBrightCyan': vitesse('cyan'),
-      'terminal.ansiBrightGreen': vitesse('green'),
-      'terminal.ansiBrightMagenta': vitesse('magenta'),
-      'terminal.ansiBrightRed': vitesse('red'),
+      'terminal.ansiBrightBlue': zb81('blue'),
+      'terminal.ansiBrightCyan': zb81('cyan'),
+      'terminal.ansiBrightGreen': zb81('green'),
+      'terminal.ansiBrightMagenta': zb81('magenta'),
+      'terminal.ansiBrightRed': zb81('red'),
       'terminal.ansiBrightWhite': pick({ light: '#dddddd', dark: '#ffffff' }),
-      'terminal.ansiBrightYellow': vitesse('yellow'),
-      'terminal.ansiBlack': pick({ light: VitesseThemes.background[0], dark: VitesseThemes.foreground[1] }),
-      'terminal.ansiBlue': vitesse('blue'),
-      'terminal.ansiCyan': vitesse('cyan'),
-      'terminal.ansiGreen': vitesse('green'),
-      'terminal.ansiMagenta': vitesse('magenta'),
-      'terminal.ansiRed': vitesse('red'),
-      'terminal.ansiWhite': pick({ light: VitesseThemes.foreground[0], dark: VitesseThemes.foreground[0] }),
-      'terminal.ansiYellow': vitesse('yellow'),
+      'terminal.ansiBrightYellow': zb81('yellow'),
+      'terminal.ansiBlack': pick({ light: Zb81Themes.background[0], dark: Zb81Themes.foreground[1] }),
+      'terminal.ansiBlue': zb81('blue'),
+      'terminal.ansiCyan': zb81('cyan'),
+      'terminal.ansiGreen': zb81('green'),
+      'terminal.ansiMagenta': zb81('magenta'),
+      'terminal.ansiRed': zb81('red'),
+      'terminal.ansiWhite': pick({ light: Zb81Themes.foreground[0], dark: Zb81Themes.foreground[0] }),
+      'terminal.ansiYellow': zb81('yellow'),
 
-      'gitDecoration.addedResourceForeground': vitesse('green'),
-      'gitDecoration.modifiedResourceForeground': vitesse('blue'),
-      'gitDecoration.deletedResourceForeground': vitesse('red'),
-      'gitDecoration.untrackedResourceForeground': vitesse('cyan'),
-      'gitDecoration.ignoredResourceForeground': vitesse('ignored'),
-      'gitDecoration.conflictingResourceForeground': vitesse('orange'),
-      'gitDecoration.submoduleResourceForeground': vitesse('secondaryForeground'),
+      'gitDecoration.addedResourceForeground': zb81('green'),
+      'gitDecoration.modifiedResourceForeground': zb81('blue'),
+      'gitDecoration.deletedResourceForeground': zb81('red'),
+      'gitDecoration.untrackedResourceForeground': zb81('cyan'),
+      'gitDecoration.ignoredResourceForeground': zb81('ignored'),
+      'gitDecoration.conflictingResourceForeground': zb81('orange'),
+      'gitDecoration.submoduleResourceForeground': zb81('secondaryForeground'),
 
-      'editorGutter.modifiedBackground': vitesse('blue'),
-      'editorGutter.addedBackground': vitesse('green'),
-      'editorGutter.deletedBackground': vitesse('red'),
+      'editorGutter.modifiedBackground': zb81('blue'),
+      'editorGutter.addedBackground': zb81('green'),
+      'editorGutter.deletedBackground': zb81('red'),
 
-      'editorBracketHighlight.foreground1': vitesse('cyan'),
-      'editorBracketHighlight.foreground2': vitesse('green'),
-      'editorBracketHighlight.foreground3': vitesse('orange'),
-      'editorBracketHighlight.foreground4': vitesse('magenta'),
-      'editorBracketHighlight.foreground5': vitesse('yellow'),
-      'editorBracketHighlight.foreground6': vitesse('blue'),
+      'editorBracketHighlight.foreground1': zb81('cyan'),
+      'editorBracketHighlight.foreground2': zb81('green'),
+      'editorBracketHighlight.foreground3': zb81('orange'),
+      'editorBracketHighlight.foreground4': zb81('magenta'),
+      'editorBracketHighlight.foreground5': zb81('yellow'),
+      'editorBracketHighlight.foreground6': zb81('blue'),
 
       'debugToolBar.background': background,
       'editor.stackFrameHighlightBackground': pick({ light: primer.yellow[1], dark: '#a707' }),
@@ -247,17 +247,17 @@ export default function getTheme({ style, name, soft = false, black = false }) {
       'welcomePage.buttonBackground': primer.gray[1],
       'welcomePage.buttonHoverBackground': primer.gray[2],
 
-      'problemsErrorIcon.foreground': vitesse('red'),
-      'problemsWarningIcon.foreground': vitesse('orange'),
-      'problemsInfoIcon.foreground': vitesse('blue'),
+      'problemsErrorIcon.foreground': zb81('red'),
+      'problemsWarningIcon.foreground': zb81('orange'),
+      'problemsInfoIcon.foreground': zb81('blue'),
 
-      'editorError.foreground': vitesse('red'),
-      'editorWarning.foreground': vitesse('orange'),
-      'editorInfo.foreground': vitesse('blue'),
-      'editorHint.foreground': vitesse('green'),
+      'editorError.foreground': zb81('red'),
+      'editorWarning.foreground': zb81('orange'),
+      'editorInfo.foreground': zb81('blue'),
+      'editorHint.foreground': zb81('green'),
 
-      'editorGutter.commentRangeForeground': vitesse('ignored'),
-      'editorGutter.foldingControlForeground': vitesse('secondaryForeground'),
+      'editorGutter.commentRangeForeground': zb81('ignored'),
+      'editorGutter.foldingControlForeground': zb81('secondaryForeground'),
 
       'editorInlayHint.foreground': punctuation,
       'editorInlayHint.background': '#00000000',
@@ -266,14 +266,15 @@ export default function getTheme({ style, name, soft = false, black = false }) {
       'editorStickyScrollHover.background': activeBackground,
 
       'menu.separatorBackground': border,
+      'sash.hoverBorder': primary,
     },
     semanticHighlighting: true,
     semanticTokenColors: {
-      namespace: vitesse('namespace'),
-      property: vitesse('property'),
-      interface: vitesse('interface'),
-      type: vitesse('interface'),
-      class: vitesse('class'),
+      namespace: zb81('namespace'),
+      property: zb81('property'),
+      interface: zb81('interface'),
+      type: zb81('interface'),
+      class: zb81('class'),
     },
     tokenColors: [
       {
@@ -283,7 +284,7 @@ export default function getTheme({ style, name, soft = false, black = false }) {
           'string.comment',
         ],
         settings: {
-          foreground: vitesse('comment'),
+          foreground: zb81('comment'),
         },
       },
       {
@@ -319,13 +320,13 @@ export default function getTheme({ style, name, soft = false, black = false }) {
           'meta.definition.variable',
         ],
         settings: {
-          foreground: vitesse('constant'),
+          foreground: zb81('constant'),
         },
       },
       {
         scope: ['entity', 'entity.name'],
         settings: {
-          foreground: vitesse('function'),
+          foreground: zb81('function'),
         },
       },
       {
@@ -340,13 +341,13 @@ export default function getTheme({ style, name, soft = false, black = false }) {
           'tag.html',
         ],
         settings: {
-          foreground: vitesse('keyword'),
+          foreground: zb81('keyword'),
         },
       },
       {
         scope: 'entity.name.function',
         settings: {
-          foreground: vitesse('function'),
+          foreground: zb81('function'),
         },
       },
       {
@@ -355,7 +356,7 @@ export default function getTheme({ style, name, soft = false, black = false }) {
           'storage.type.class.jsdoc',
         ],
         settings: {
-          foreground: vitesse('keyword'),
+          foreground: zb81('keyword'),
         },
       },
       {
@@ -367,7 +368,7 @@ export default function getTheme({ style, name, soft = false, black = false }) {
           'constant.language.null',
         ],
         settings: {
-          foreground: vitesse('builtin'),
+          foreground: zb81('builtin'),
         },
       },
       {
@@ -388,7 +389,7 @@ export default function getTheme({ style, name, soft = false, black = false }) {
           'attribute.value',
         ],
         settings: {
-          foreground: vitesse('string'),
+          foreground: zb81('string'),
         },
       },
       {
@@ -397,13 +398,13 @@ export default function getTheme({ style, name, soft = false, black = false }) {
           'punctuation.support.type.property-name',
         ],
         settings: {
-          foreground: vitesse('string', '99'),
+          foreground: zb81('string', '99'),
         },
       },
       {
         scope: 'support',
         settings: {
-          foreground: vitesse('property'),
+          foreground: zb81('property'),
         },
       },
       {
@@ -415,7 +416,7 @@ export default function getTheme({ style, name, soft = false, black = false }) {
           'attribute.name',
         ],
         settings: {
-          foreground: vitesse('property'),
+          foreground: zb81('property'),
         },
       },
       {
@@ -424,7 +425,7 @@ export default function getTheme({ style, name, soft = false, black = false }) {
           'invalid.deprecated.entity.other.attribute-name.html',
         ],
         settings: {
-          foreground: vitesse('variable'),
+          foreground: zb81('variable'),
         },
       },
       {
@@ -433,7 +434,7 @@ export default function getTheme({ style, name, soft = false, black = false }) {
           'identifier',
         ],
         settings: {
-          foreground: vitesse('variable'),
+          foreground: zb81('variable'),
         },
       },
       {
@@ -442,13 +443,13 @@ export default function getTheme({ style, name, soft = false, black = false }) {
           'entity.name.type',
         ],
         settings: {
-          foreground: vitesse('type'),
+          foreground: zb81('type'),
         },
       },
       {
         scope: 'namespace',
         settings: {
-          foreground: vitesse('namespace'),
+          foreground: zb81('namespace'),
         },
       },
       {
@@ -458,7 +459,7 @@ export default function getTheme({ style, name, soft = false, black = false }) {
           'meta.var.expr.ts',
         ],
         settings: {
-          foreground: vitesse('operator'),
+          foreground: zb81('operator'),
         },
       },
       {
@@ -507,13 +508,13 @@ export default function getTheme({ style, name, soft = false, black = false }) {
       {
         scope: 'string variable',
         settings: {
-          foreground: vitesse('string'),
+          foreground: zb81('string'),
         },
       },
       {
         scope: ['source.regexp', 'string.regexp'],
         settings: {
-          foreground: vitesse('regex'),
+          foreground: zb81('regex'),
         },
       },
       {
@@ -524,13 +525,13 @@ export default function getTheme({ style, name, soft = false, black = false }) {
           'string.regexp string.regexp.arbitrary-repitition',
         ],
         settings: {
-          foreground: vitesse('string'),
+          foreground: zb81('string'),
         },
       },
       {
         scope: 'string.regexp constant.character.escape',
         settings: {
-          foreground: vitesse('yellow'),
+          foreground: zb81('yellow'),
         },
       },
       {
@@ -538,7 +539,7 @@ export default function getTheme({ style, name, soft = false, black = false }) {
           'support.constant',
         ],
         settings: {
-          foreground: vitesse('constant'),
+          foreground: zb81('constant'),
         },
       },
       {
@@ -547,7 +548,7 @@ export default function getTheme({ style, name, soft = false, black = false }) {
           'number',
         ],
         settings: {
-          foreground: vitesse('number'),
+          foreground: zb81('number'),
         },
       },
       {
@@ -555,7 +556,7 @@ export default function getTheme({ style, name, soft = false, black = false }) {
           'keyword.other.unit',
         ],
         settings: {
-          foreground: vitesse('builtin'),
+          foreground: zb81('builtin'),
         },
       },
       {
@@ -564,7 +565,7 @@ export default function getTheme({ style, name, soft = false, black = false }) {
           'constant.language',
         ],
         settings: {
-          foreground: vitesse('boolean'),
+          foreground: zb81('boolean'),
         },
       },
       {
@@ -576,7 +577,7 @@ export default function getTheme({ style, name, soft = false, black = false }) {
       {
         scope: 'punctuation.definition.list.begin.markdown',
         settings: {
-          foreground: vitesse('orange'),
+          foreground: zb81('orange'),
         },
       },
       {
@@ -589,7 +590,7 @@ export default function getTheme({ style, name, soft = false, black = false }) {
       {
         scope: 'markup.quote',
         settings: {
-          foreground: vitesse('interface'),
+          foreground: zb81('interface'),
         },
       },
       {
@@ -701,7 +702,7 @@ export default function getTheme({ style, name, soft = false, black = false }) {
           'punctuation.definition.string.end.markdown',
         ],
         settings: {
-          foreground: vitesse('string'),
+          foreground: zb81('string'),
         },
       },
       {
@@ -718,7 +719,7 @@ export default function getTheme({ style, name, soft = false, black = false }) {
           'type.identifier',
         ],
         settings: {
-          foreground: vitesse('class'),
+          foreground: zb81('class'),
         },
       },
       {
@@ -726,7 +727,7 @@ export default function getTheme({ style, name, soft = false, black = false }) {
           'entity.other.attribute-name.html.vue',
         ],
         settings: {
-          foreground: vitesse('function'),
+          foreground: zb81('function'),
         },
       },
       {

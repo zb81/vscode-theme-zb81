@@ -1,5 +1,5 @@
 {
-  "name": "Vitesse Dark",
+  "name": "Zb81 Dark",
   "base": "vs-dark",
   "colors": {
     "focusBorder": "#00000000",
@@ -187,7 +187,8 @@
     "editorInlayHint.background": "#00000000",
     "editorStickyScroll.background": "#181818",
     "editorStickyScrollHover.background": "#181818",
-    "menu.separatorBackground": "#191919"
+    "menu.separatorBackground": "#191919",
+    "sash.hoverBorder": "#4d9375"
   },
   "semanticHighlighting": true,
   "semanticTokenColors": {
