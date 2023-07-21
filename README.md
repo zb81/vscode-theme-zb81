@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-<img alt="Zb81 Theme Dark Soft" src="https://cdn.jsdelivr.net/gh/zb81/blog-assets/images/image-20230721164016314.png">
+<img alt="Zb81 Theme Dark Soft" src="https://cdn.jsdelivr.net/gh/zb81/blog-assets/images/image-20230721165514714.png">
 </p>
 
 ## Thanks
