@@ -32,21 +32,6 @@
   "contributes": {
     "themes": [
       {
-        "label": "Zb81 Light",
-        "uiTheme": "vs",
-        "path": "./themes/zb81-light.json"
-      },
-      {
-        "label": "Zb81 Dark",
-        "uiTheme": "vs-dark",
-        "path": "./themes/zb81-dark.json"
-      },
-      {
-        "label": "Zb81 Black",
-        "uiTheme": "vs-dark",
-        "path": "./themes/zb81-black.json"
-      },
-      {
         "label": "Zb81 Light Soft",
         "uiTheme": "vs",
         "path": "./themes/zb81-light-soft.json"
@@ -55,6 +40,16 @@
         "label": "Zb81 Dark Soft",
         "uiTheme": "vs-dark",
         "path": "./themes/zb81-dark-soft.json"
+      },
+      {
+        "label": "Zb81 Light",
+        "uiTheme": "vs",
+        "path": "./themes/zb81-light.json"
+      },
+      {
+        "label": "Zb81 Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/zb81-dark.json"
       }
     ]
   },
@@ -71,6 +66,7 @@
     "@antfu/utils": "^0.7.2",
     "@types/color": "^3.0.3",
     "@types/node": "^18.16.7",
+    "bumpp": "^9.1.1",
     "color": "^4.2.3",
     "eslint": "^8.40.0",
     "esno": "^0.16.3",
